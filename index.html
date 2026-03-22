@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+  <meta charset="UTF-8">
+
+  <!-- SEO & Open Graph Meta Tags -->
+  <meta name="description" content="เรียนรู้ฟิสิกส์ ม.ปลาย พื้นฐานจลนศาสตร์ กฎนิวตัน พลังงาน แบบวงกลม คลื่น และอุณหพลศาสตร์ พร้อมแบบฝึกหัดและสถานการณ์จำลอง (Interactive Physics)">
+  <meta name="keywords" content="ฟิสิกส์, วิทยาศาสตร์, physics, จลนศาสตร์, กฎนิวตัน, พลังงาน, คลื่น, อุณหพลศาสตร์, simulation, แบบฝึกหัดฟิสิกส์">
+  <meta name="author" content="นายชัยเลิศ ตุ้มคำ">
+  
+  <meta property="og:title" content="Physics Lab - ศูนย์รวมความรู้ฟิสิกส์">
+  <meta property="og:description" content="เรียนรู้ฟิสิกส์ผ่านเว็บไซต์ที่ออกแบบมาให้เข้าใจง่าย อัดแน่นด้วยแบบจำลองเสมือนจริงและเนื้อหาที่ครบถ้วน">
+  <meta property="og:image" content="assets/hero_bg.png">
+  <meta property="og:url" content="https://physics.example.com">
+  <meta property="og:type" content="website">
+  
+  <link rel="icon" type="image/png" href="assets/icon_newton.png">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ฟิสิกส์ 1 — แหล่งการเรียนรู้ดิจิทัล</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&family=Space+Mono:wght@400;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo">PHYSICS1</div>
+    <ul class="nav-links">
+      <li><a href="#topics">บทเรียน</a></li>
+      <li><a href="#learn">เรียนรู้</a></li>
+      <li><a href="#simulation">จำลองสถานการณ์</a></li>
+      <li><a href="#quiz">แบบฝึกหัด</a></li>
+      <li><a href="#design">แนวคิดการสอน</a></li>
+      <li><a href="#author">ผู้จัดทำ</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-orb orb1"></div>
+    <div class="hero-orb orb2"></div>
+    <div class="hero-orb orb3"></div>
+    <div class="hero-content">
+      <div class="hero-badge">▶ แหล่งการเรียนรู้ดิจิทัล · วิชาฟิสิกส์ 1</div>
+      <h1>เรียนฟิสิกส์<br><span>ให้เข้าใจจริง</span></h1>
+      <p>เรียนรู้จากการลงมือปฏิบัติจริง ทดลองจำลองสถานการณ์ และฝึกทำโจทย์ ตามหลักการเรียนรู้สมัยใหม่</p>
+      <div class="hero-cta">
+        <a href="#topics" class="btn-primary">เริ่มเรียน →</a>
+        <a href="#design" class="btn-outline">แนวคิดการสอน</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <div class="stats">
+    <div class="stat">
+      <span class="stat-num">6</span>
+      <span class="stat-label">หน่วยการเรียน</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">30+</span>
+      <span class="stat-label">โจทย์ฝึกหัด</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">4</span>
+      <span class="stat-label">สถานการณ์จำลอง</span>
+    </div>
+  </div>
+
+  <!-- TOPICS -->
+  <section id="topics">
+    <div style="max-width:1100px;margin:0 auto">
+      <div class="section-label reveal">หน่วยการเรียนรู้</div>
+      <h2 class="section-title reveal">บทเรียนฟิสิกส์ 1</h2>
+      <p class="section-desc reveal">เนื้อหาครอบคลุมตามหลักสูตร จัดลำดับจากง่ายไปยาก
+        เพื่อให้ผู้เรียนสร้างความรู้อย่างต่อเนื่อง</p>
+
+      <div class="topics-grid">
+        <a href="#learn" class="topic-card reveal" onclick="switchTab('kinematics')">
+          <img src="assets/icon_kinematics.png" alt="จลนศาสตร์" class="topic-icon">
+          <div class="topic-num">บทที่ 01</div>
+          <div class="topic-title">จลนศาสตร์</div>
+          <p class="topic-desc">การเคลื่อนที่เส้นตรง ความเร็ว ความเร่ง และสมการการเคลื่อนที่</p>
+          <div class="topic-tags">
+            <span class="tag">ความเร็ว</span>
+            <span class="tag">ความเร่ง</span>
+            <span class="tag">การกระจัด</span>
+          </div>
+        </a>
+
+        <a href="#learn" class="topic-card reveal" onclick="switchTab('newton')" style="transition-delay:0.1s">
+          <img src="assets/icon_newton.png" alt="กฎนิวตัน" class="topic-icon">
+          <div class="topic-num">บทที่ 02</div>
+          <div class="topic-title">กฎการเคลื่อนที่ของนิวตัน</div>
+          <p class="topic-desc">กฎทั้งสามของนิวตัน แรง มวล และความเร่ง</p>
+          <div class="topic-tags">
+            <span class="tag">F=ma</span>
+            <span class="tag">แรงลัพธ์</span>
+            <span class="tag">แรงเสียดทาน</span>
+          </div>
+        </a>
+
+        <a href="#learn" class="topic-card reveal" onclick="switchTab('energy')" style="transition-delay:0.2s">
+          <img src="assets/icon_energy.png" alt="งานและพลังงาน" class="topic-icon">
+          <div class="topic-num">บทที่ 03</div>
+          <div class="topic-title">งานและพลังงาน</div>
+          <p class="topic-desc">งานเชิงกล พลังงานจลน์ พลังงานศักย์ และการอนุรักษ์พลังงาน</p>
+          <div class="topic-tags">
+            <span class="tag">W=Fd</span>
+            <span class="tag">พลังงานจลน์</span>
+            <span class="tag">พลังงานศักย์</span>
+          </div>
+        </a>
+
+        <a href="#learn" class="topic-card reveal" onclick="switchTab('circular')" style="transition-delay:0.3s">
+          <img src="assets/icon_circular.png" alt="การเคลื่อนที่แบบวงกลม" class="topic-icon">
+          <div class="topic-num">บทที่ 04</div>
+          <div class="topic-title">การเคลื่อนที่แบบวงกลม</div>
+          <p class="topic-desc">ความเร็วเชิงมุม แรงสู่ศูนย์กลาง และการประยุกต์</p>
+          <div class="topic-tags">
+            <span class="tag">แรงสู่ศูนย์กลาง</span>
+            <span class="tag">คาบ</span>
+            <span class="tag">ความถี่</span>
+          </div>
+        </a>
+
+        <a href="#learn" class="topic-card reveal" onclick="switchTab('wave')" style="transition-delay:0.4s">
+          <img src="assets/icon_wave.png" alt="การสั่นและคลื่น" class="topic-icon">
+          <div class="topic-num">บทที่ 05</div>
+          <div class="topic-title">การสั่นและคลื่น</div>
+          <p class="topic-desc">การสั่นอย่างง่าย คลื่นกล คลื่นเสียง และคลื่นนิ่ง</p>
+          <div class="topic-tags">
+            <span class="tag">แอมพลิจูด</span>
+            <span class="tag">ความยาวคลื่น</span>
+            <span class="tag">คลื่นเสียง</span>
+          </div>
+        </a>
+
+        <a href="#learn" class="topic-card reveal" onclick="switchTab('thermo')" style="transition-delay:0.5s">
+          <img src="assets/icon_thermo.png" alt="อุณหพลศาสตร์" class="topic-icon">
+          <div class="topic-num">บทที่ 06</div>
+          <div class="topic-title">ความร้อนและอุณหพลศาสตร์</div>
+          <p class="topic-desc">อุณหภูมิ ความร้อน กฎของแก๊ส และเทอร์โมไดนามิกส์</p>
+          <div class="topic-tags">
+            <span class="tag">PV=nRT</span>
+            <span class="tag">ความจุความร้อน</span>
+            <span class="tag">เอนโทรปี</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEARN -->
+  <section id="learn" style="background: var(--surface)">
+    <div class="lesson-wrapper">
+      <div class="section-label reveal">เนื้อหาบทเรียน</div>
+      <h2 class="section-title reveal">เรียนรู้แบบ Active Learning</h2>
+      <p class="section-desc reveal">เนื้อหา สูตร และตัวอย่างโจทย์ในแต่ละบท — คลิกแท็บเพื่อสลับบทเรียน</p>
+
+      <div class="lesson-tabs reveal">
+        <button class="tab-btn active" onclick="switchTab('kinematics')">จลนศาสตร์</button>
+        <button class="tab-btn" onclick="switchTab('newton')">กฎนิวตัน</button>
+        <button class="tab-btn" onclick="switchTab('energy')">งานและพลังงาน</button>
+        <button class="tab-btn" onclick="switchTab('circular')">การเคลื่อนที่แบบวงกลม</button>
+        <button class="tab-btn" onclick="switchTab('wave')">การสั่นและคลื่น</button>
+        <button class="tab-btn" onclick="switchTab('thermo')">ความร้อน</button>
+      </div>
+
+      <!-- ==================== บทที่ 1: จลนศาสตร์ ==================== -->
+      <div id="tab-kinematics" class="tab-content active">
+        <div class="content-box reveal">
+          <h3><i class="fa-solid fa-location-pin"></i> จลนศาสตร์ (Kinematics)</h3>
+          <div style="text-align:center;margin-bottom:24px;">
+            <img src="assets/kinematics_illus.png" alt="Kinematics" style="max-width:100%;height:auto;border-radius:8px;box-shadow:var(--shadow);border:1px solid var(--border);">
+          </div>
+          <p>จลนศาสตร์ศึกษาการเคลื่อนที่ของวัตถุโดยไม่คำนึงถึงสาเหตุของการเคลื่อนที่ ปริมาณสำคัญได้แก่ ตำแหน่ง (x), การกระจัด (Δx), ความเร็ว (v), ความเร่ง (a) และเวลา (t)</p>
+          <div class="key-point"><span><i class="fa-solid fa-lightbulb"></i></span>
+            <p>ความเร็ว = อัตราการเปลี่ยนแปลงของตำแหน่งต่อเวลา เป็นปริมาณเวกเตอร์</p>
+          </div>
+          <h3 style="margin-top:24px">สมการการเคลื่อนที่ (สม่ำเสมอ)</h3>
+          <div class="formula-box">v = u + at</div>
+          <div class="formula-label">ความเร็วสุดท้าย = ความเร็วต้น + (ความเร่ง × เวลา)</div>
+          <div class="formula-box">s = ut + ½at²</div>
+          <div class="formula-label">การกระจัด = ความเร็วต้น×เวลา + ½(ความเร่ง)(เวลา²)</div>
+          <div class="formula-box">v² = u² + 2as</div>
+          <div class="formula-label">กำลังสองความเร็วสุดท้าย = กำลังสองความเร็วต้น + 2(ความเร่ง)(การกระจัด)</div>
+          <div class="key-point" style="margin-top:20px"><span><i class="fa-solid fa-triangle-exclamation"></i></span>
+            <p>สมการเหล่านี้ใช้ได้เฉพาะเมื่อความเร่งมีค่าคงที่เท่านั้น</p>
+          </div>
+        </div>
+        <div class="content-box reveal">
+          <h3><i class="fa-solid fa-book-open-reader"></i> เวกเตอร์ (Vector) vs สเกลาร์ (Scalar)</h3>
+          <p>ในการศึกษาฟิสิกส์ ปริมาณต่างๆ จะถูกแบ่งออกเป็น 2 ประเภทหลัก:</p>
+          <ul style="margin-left:24px; color:var(--muted); line-height:1.8">
+            <li><strong>ปริมาณสเกลาร์ (Scalar):</strong> มีแค่ "ขนาด" อย่างเดียว เช่น ระยะทาง, อัตราเร็ว, มวล, เวลา</li>
+            <li><strong>ปริมาณเวกเตอร์ (Vector):</strong> ต้องมีทั้ง "ขนาด" และ "ทิศทาง" เช่น การกระจัด, ความเร็ว, แรง</li>
+          </ul>
+          <div class="key-point" style="margin-top:16px"><p><strong>ข้อควรระวัง:</strong> อัตราเร็ว = ระยะทาง/เวลา (สเกลาร์) แต่ ความเร็ว = การกระจัด/เวลา (เวกเตอร์)</p></div>
+        </div>
+        <div class="content-box reveal">
+          <h3><i class="fa-solid fa-pen"></i> ตัวอย่างโจทย์</h3>
+          <p><strong>โจทย์:</strong> รถยนต์เริ่มต้นจากหยุดนิ่ง มีความเร่ง 3 m/s² จงหาความเร็วและระยะทางที่เคลื่อนที่ได้ใน 5 วินาที</p>
+          <div class="formula-box" style="font-size:0.9rem; text-align:left; padding:16px 20px;">
+            u = 0, a = 3 m/s², t = 5 s<br><br>
+            v = u + at = 0 + (3)(5) = <span style="color:#10b981">15 m/s</span><br><br>
+            s = ut + ½at² = 0 + ½(3)(25) = <span style="color:#10b981">37.5 m</span>
+          </div>
+        </div>
+        <div class="content-box reveal">
+          <h3><i class="fa-solid fa-pen"></i> ตัวอย่างโจทย์: การตกอิสระ (Free Fall)</h3>
+          <p><strong>โจทย์:</strong> ปล่อยก้อนหินลงมาจากดาดฟ้าตึก หินตกกระทบพื้นในเวลา 3 วินาที ตึกนี้สูงเท่าใด? (g = 9.8 m/s²)</p>
+          <div class="formula-box" style="font-size:0.9rem; text-align:left; padding:16px 20px;">
+            u = 0 (ปล่อยจากหยุดนิ่ง), a = 9.8 m/s², t = 3 s<br><br>
+            s = ut + ½at² = (0)(3) + ½(9.8)(9) = <span style="color:#10b981">44.1 เมตร</span>
+          </div>
+        </div>
+        <div class="content-box reveal" style="border-left:4px solid var(--accent)">
+          <h4><i class="fa-solid fa-gamepad"></i> จำลอง: ความเร่งและความเร็ว</h4>
+          <p style="font-size:0.85rem;color:var(--muted);margin-bottom:12px">ปรับค่าความเร่งแล้วกดเริ่ม เพื่อดูรถวิ่งด้วยความเร่งที่กำหนด</p>
+          <canvas id="cvKine" width="700" height="120" style="width:100%;border-radius:8px;background:var(--bg);border:1px solid var(--border);display:block;margin-bottom:12px"></canvas>
+          <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap">
+            <div style="flex:1;min-width:140px">
+              <label style="font-size:0.78rem;color:var(--muted)">ความเร่ง (m/s²)</label>
+              <input type="range" id="sim1-acc" min="0" max="10" value="3" style="width:100%" oninput="sim1Update()">
+            </div>
+            <div style="font-family:'Space Mono';font-size:0.85rem;color:var(--accent);min-width:100px" id="sim1-info">a = 3.0 m/s²</div>
+            <button class="sim-btn primary" onclick="sim1Start()" style="padding:6px 16px;font-size:0.85rem">▶ เริ่ม</button>
+            <button class="sim-btn" onclick="sim1Reset()" style="padding:6px 16px;font-size:0.85rem">↺ รีเซ็ต</button>
+          </div>
+          <div style="font-size:0.8rem;color:var(--muted);margin-top:8px" id="sim1-result"></div>
+        </div>
+        <div class="content-box reveal">
+          <h4><i class="fa-solid fa-clipboard-question"></i> แบบทดสอบ: จลนศาสตร์</h4>
+          <p>รถเริ่มต้นจาก 0 ด้วยความเร่ง 4 m/s² ใน 5 วินาที ความเร็วจะเป็นเท่าใด?</p>
+          <button class="btn-outline" style="padding:6px 12px;font-size:0.9rem;" onclick="alert('ผิดครับ')">A: 10 m/s</button>
+          <button class="btn-outline" style="padding:6px 12px;font-size:0.9rem;" onclick="alert('ถูกต้อง! v = u+at = 20 m/s')">B: 20 m/s</button>
+        </div>
+      </div>
+
+      <!-- ==================== บทที่ 2: กฎนิวตัน ==================== -->
+      <div id="tab-newton" class="tab-content">
+        <div class="content-box reveal">
+          <h3><i class="fa-solid fa-scale-balanced"></i> กฎการเคลื่อนที่ของนิวตัน</h3>
+          <div style="text-align:center;margin-bottom:24px;">
+            <img src="assets/newton_illus.png" alt="Newton's Law" style="max-width:100%;height:auto;border-radius:8px;box-shadow:var(--shadow);border:1px solid var(--border);">
+          </div>
+          <div class="key-point"><span><i class="fa-solid fa-1"></i></span>
+            <p><strong>กฎข้อที่ 1 (กฎความเฉื่อย):</strong> วัตถุจะคงสภาพนิ่งหรือเคลื่อนที่เป็นเส้นตรงด้วยความเร็วคงที่ ถ้าไม่มีแรงลัพธ์กระทำต่อวัตถุ</p>
+          </div>
+          <div class="key-point"><span><i class="fa-solid fa-2"></i></span>
+            <p><strong>กฎข้อที่ 2:</strong> ความเร่งของวัตถุแปรผันตรงกับแรงลัพธ์และแปรผกผันกับมวล</p>
+          </div>
+          <div class="formula-box">ΣF = ma</div>
+          <div class="formula-label">แรงลัพธ์ (N) = มวล (kg) × ความเร่ง (m/s²)</div>
+          <div class="key-point" style="margin-top:16px"><span><i class="fa-solid fa-3"></i></span>
+            <p><strong>กฎข้อที่ 3 (กฎแรงปฏิกิริยา):</strong> ทุกแรงกิริยามีแรงปฏิกิริยาที่มีขนาดเท่ากันแต่ทิศทางตรงข้าม</p>
+          </div>
+          <div class="key-point" style="margin-top:20px;background:#eff6ff;border-left-color:var(--accent);"><span><i class="fa-solid fa-lightbulb"></i></span>
+            <p><strong>เรื่องน่ารู้:</strong> นิวตันค้นพบกฎเหล่านี้จากคำถามที่ว่า "แรงอะไรที่ทำให้ผลแอปเปิลตกสู่พื้นดิน และแรงนั้นเป็นแรงเดียวกับที่ตรึงดวงจันทร์ไว้กับโลกหรือไม่?"</p>
+          </div>
+        </div>
+        <div class="content-box reveal">
+          <h3><i class="fa-solid fa-wrench"></i> แรงสำคัญที่ควรรู้</h3>
+          <div class="formula-box" style="font-size:0.9rem; text-align:left; padding:16px 20px;">
+            น้ำหนัก: W = mg (g ≈ 9.8 m/s²)<br><br>
+            แรงเสียดทาน: f = μN<br>
+            &nbsp;&nbsp;• μₛ = สัมประสิทธิ์แรงเสียดทานสถิต<br>
+            &nbsp;&nbsp;• μₖ = สัมประสิทธิ์แรงเสียดทานจลน์
+          </div>
+          <div class="key-point"><span><i class="fa-solid fa-lightbulb"></i></span>
+            <p>N คือแรงปฏิกิริยาตั้งฉาก (Normal force) ไม่ใช่น้ำหนัก บนพื้นเอียงค่า N จะไม่เท่ากับ mg</p>
+          </div>
+        </div>
+        <div class="content-box reveal">
+          <h3><i class="fa-solid fa-pen-ruler"></i> แผนภาพวัตถุอิสระ (Free Body Diagram - FBD)</h3>
+          <p>หัวใจสำคัญของการแก้โจทย์กฎนิวตันคือการวาด FBD — วาดเฉพาะวัตถุที่สนใจ และใส่แรงทั้งหมดเป็นลูกศรเวกเตอร์</p>
+          <ul style="margin-left:24px; color:var(--muted); line-height:1.8">
+            <li><strong>W (Weight):</strong> น้ำหนัก พุ่งลงสู่ศูนย์กลางโลกเสมอ (W=mg)</li>
+            <li><strong>N (Normal Force):</strong> แรงดันพื้น ตั้งฉากกับผิวสัมผัสพุ่งออกจากผิวเสมอ</li>
+            <li><strong>T (Tension):</strong> แรงตึงเชือก พุ่งออกจากวัตถุเสมอ</li>
+            <li><strong>f (Friction):</strong> แรงเสียดทาน ทิศตรงข้ามกับการเคลื่อนที่สัมพัทธ์</li>
+          </ul>
+        </div>
+        <div class="content-box reveal">
+          <h3><i class="fa-solid fa-pen"></i> ตัวอย่างโจทย์: พื้นเอียง</h3>
+          <p><strong>โจทย์:</strong> วางกล่องมวล 5 kg บนพื้นเอียงทำมุม 30° ถ้าพื้นไม่มีแรงเสียดทาน ความเร่งคือเท่าใด?</p>
+          <div class="formula-box" style="font-size:0.9rem; text-align:left; padding:16px 20px;">
+            แรงขนานพื้นเอียง = mg sin(30°)<br>
+            จาก ΣF = ma → mg sin(30°) = ma<br>
+            a = g sin(30°) = (9.8)(0.5) = <span style="color:#10b981">4.9 m/s²</span>
+          </div>
+        </div>
+        <div class="content-box reveal" style="border-left:4px solid var(--accent2)">
+          <h4><i class="fa-solid fa-gamepad"></i> จำลอง: กฎข้อ 2 (F = ma)</h4>
+          <p style="font-size:0.85rem;color:var(--muted);margin-bottom:12px">ปรับแรง (F) และมวล (m) แล้วดูผลของความเร่ง</p>
+          <canvas id="cvNewton" width="700" height="140" style="width:100%;border-radius:8px;background:var(--bg);border:1px solid var(--border);display:block;margin-bottom:12px"></canvas>
+          <div style="display:flex;gap:16px;flex-wrap:wrap">
+            <div style="flex:1;min-width:140px">
+              <label style="font-size:0.78rem;color:var(--muted)">แรง F (N)</label>
+              <input type="range" id="sim2-f" min="1" max="100" value="50" style="width:100%" oninput="sim2Draw()">
+              <div style="font-family:'Space Mono';font-size:0.8rem;text-align:right;color:var(--accent2)" id="sim2-f-val">50 N</div>
+            </div>
+            <div style="flex:1;min-width:140px">
+              <label style="font-size:0.78rem;color:var(--muted)">มวล m (kg)</label>
+              <input type="range" id="sim2-m" min="1" max="20" value="5" style="width:100%" oninput="sim2Draw()">
+              <div style="font-family:'Space Mono';font-size:0.8rem;text-align:right;color:var(--accent2)" id="sim2-m-val">5 kg</div>
+            </div>
+          </div>
+          <div style="text-align:center;margin-top:12px;font-family:'Space Mono';font-size:1.1rem;color:var(--accent2)" id="sim2-result">a = F/m = 50/5 = 10.0 m/s²</div>
+        </div>
+        <div class="content-box reveal">
+          <h4><i class="fa-solid fa-clipboard-question"></i> แบบทดสอบ: กฎนิวตัน</h4>
+          <p>แรง 20N ดันมวล 4kg ที่อยู่นิ่งให้มีความเร่งเท่าใด?</p>
+          <button class="btn-outline" style="padding:6px 12px;font-size:0.9rem;" onclick="alert('ถูกต้อง! a = F/m')">A: 5 m/s²</button>
+          <button class="btn-outline" style="padding:6px 12px;font-size:0.9rem;" onclick="alert('ผิดครับ ต้องหารไม่ใช่คูณ')">B: 80 m/s²</button>
+        </div>
+      </div>
+
+      <!-- ==================== บทที่ 3: งานและพลังงาน ==================== -->
+      <div id="tab-energy" class="tab-content">
+        <div class="content-box reveal">
+          <h3><i class="fa-solid fa-bolt"></i> งานและพลังงาน</h3>
+          <div style="text-align:center;margin-bottom:24px;">
+            <img src="assets/energy_illus.png" alt="Work and Energy" style="max-width:100%;height:auto;border-radius:8px;box-shadow:var(--shadow);border:1px solid var(--border);">
+          </div>
+          <p>งานเชิงกล (W) เกิดขึ้นเมื่อแรงกระทำต่อวัตถุและวัตถุเกิดการเคลื่อนที่ในทิศทางของแรง</p>
+          <div class="formula-box">W = F·d·cosθ</div>
+          <div class="formula-label">งาน (J) = แรง (N) × การกระจัด (m) × cos(มุมระหว่างแรงกับการกระจัด)</div>
+          <h3 style="margin-top:24px">พลังงานกล</h3>
+          <div class="formula-box" style="font-size:0.9rem; text-align:left; padding:16px 20px;">
+            พลังงานจลน์: KE = ½mv²<br><br>
+            พลังงานศักย์โน้มถ่วง: PE = mgh<br><br>
+            พลังงานกลรวม: E = KE + PE = คงที่ (ไม่มีแรงต้าน)
+          </div>
+          <div class="key-point"><span><i class="fa-solid fa-star"></i></span>
+            <p><strong>กฎอนุรักษ์พลังงาน:</strong> พลังงานไม่สามารถสร้างหรือทำลายได้ เพียงแต่เปลี่ยนรูปจากรูปแบบหนึ่งไปสู่อีกรูปแบบหนึ่ง</p>
+          </div>
+          <h3 style="margin-top:24px">กำลัง (Power)</h3>
+          <div class="formula-box">P = W/t = Fv</div>
+          <div class="formula-label">กำลัง (W หรือ J/s) = งาน/เวลา = แรง × ความเร็ว</div>
+        </div>
+        <div class="content-box reveal">
+          <h3><i class="fa-solid fa-recycle"></i> แรงอนุรักษ์ (Conservative Force)</h3>
+          <p>แรงอนุรักษ์ คือแรงที่งานรวมในการเคลื่อนที่ครบรอบมีค่าเป็นศูนย์ (งานไม่ขึ้นกับเส้นทาง) เช่น <strong>แรงโน้มถ่วง</strong> และ <strong>แรงสปริง</strong></p>
+          <p style="margin-top:8px">ส่วน <strong>แรงไม่อนุรักษ์</strong> คืองานที่ขึ้นกับเส้นทาง เช่น <strong>แรงเสียดทาน</strong> (ยิ่งเดินอ้อม งานยิ่งเสียไปมาก)</p>
+        </div>
+        <div class="content-box reveal">
+          <h3><i class="fa-solid fa-pen"></i> ตัวอย่างโจทย์: ลูกตุ้มเพนดูลัม (Pendulum)</h3>
+          <p><strong>โจทย์:</strong> ดึงลูกตุ้มมวล 1 kg ขึ้นไปสูง 0.2 m แล้วปล่อย อัตราเร็วขณะผ่านจุดต่ำสุดคือเท่าใด? (g=10)</p>
+          <div class="formula-box" style="font-size:0.9rem; text-align:left; padding:16px 20px;">
+            PE ที่จุดสูงสุด = KE ที่จุดต่ำสุด<br>
+            mgh = ½mv²<br>
+            (1)(10)(0.2) = ½(1)(v²)<br>
+            2 = 0.5(v²) → v² = 4 → v = <span style="color:#10b981">2 m/s</span>
+          </div>
+        </div>
+        <div class="content-box reveal" style="border-left:4px solid var(--accent3)">
+          <h4><i class="fa-solid fa-gamepad"></i> จำลอง: พลังงานศักย์ &amp; จลน์</h4>
+          <p style="font-size:0.85rem;color:var(--muted);margin-bottom:12px">เลื่อนตำแหน่งลูกบอลบนรางเพื่อดูการแปลงพลังงาน PE ↔ KE</p>
+          <canvas id="cvEnergy" width="700" height="200" style="width:100%;border-radius:8px;background:var(--bg);border:1px solid var(--border);display:block;margin-bottom:12px"></canvas>
+          <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap">
+            <div style="flex:1;min-width:200px">
+              <label style="font-size:0.78rem;color:var(--muted)">ตำแหน่งบนราง (ความสูง)</label>
+              <input type="range" id="sim3-h" min="0" max="100" value="100" style="width:100%" oninput="sim3Draw()">
+            </div>
+            <div style="font-family:'Space Mono';font-size:0.8rem;color:var(--accent3);min-width:160px" id="sim3-info">PE: 100% | KE: 0%</div>
+          </div>
+        </div>
+        <div class="content-box reveal">
+          <h4><i class="fa-solid fa-clipboard-question"></i> แบบทดสอบ: พลังงาน</h4>
+          <p>วัตถุ 2kg ตกจาก 5m มีพลังงานศักย์เริ่มต้นเท่าใด? (g=10)</p>
+          <button class="btn-outline" style="padding:6px 12px;font-size:0.9rem;" onclick="alert('ถูกต้อง! mgh = 2*10*5 = 100J')">A: 100 J</button>
+          <button class="btn-outline" style="padding:6px 12px;font-size:0.9rem;" onclick="alert('ผิดครับ')">B: 50 J</button>
+        </div>
+      </div>
+
+      <!-- ==================== บทที่ 4: การเคลื่อนที่แบบวงกลม ==================== -->
+      <div id="tab-circular" class="tab-content">
+        <div class="content-box reveal">
+          <h3><i class="fa-solid fa-circle-notch"></i> การเคลื่อนที่แบบวงกลม</h3>
+          <div style="text-align:center;margin-bottom:24px;">
+            <img src="assets/circular_illus.png" alt="Circular Motion" style="max-width:100%;height:auto;border-radius:8px;box-shadow:var(--shadow);border:1px solid var(--border);">
+          </div>
+          <p>การเคลื่อนที่แบบวงกลม คือการที่วัตถุเคลื่อนที่รอบจุดศูนย์กลางคงที่ด้วยรัศมีที่คงที่</p>
+          <div class="formula-box">a_c = v² / r</div>
+          <div class="formula-label">ความเร่งสู่ศูนย์กลาง (m/s²) = (ความเร็วเชิงเส้น)² / รัศมี (m)</div>
+          <div class="formula-box" style="margin-top:16px;">F_c = m × v² / r</div>
+          <div class="formula-label">แรงสู่ศูนย์กลาง (N) = มวล (kg) × ความเร่งสู่ศูนย์กลาง</div>
+        </div>
+        <div class="content-box reveal">
+          <h3><i class="fa-solid fa-car-side"></i> แรงหนีศูนย์กลาง (Centrifugal Force) มีจริงหรือไม่?</h3>
+          <p>ในมุมมองของผู้สังเกตการณ์ภายนอก (Inertial Frame) <strong>แรงหนีศูนย์กลางไม่มีจริง</strong> สิ่งที่มีจริงคือความเฉื่อยของวัตถุที่พยายามจะวิ่งเป็นเส้นตรง แต่กลับถูกแรงสู่ศูนย์กลางดึงกลับมาเป็นวงกลม ทำให้คนข้างในกล่องรู้สึกเหมือนถูกผลักออก (Pseudo Force)</p>
+        </div>
+        <div class="content-box reveal">
+          <h3><i class="fa-solid fa-pen"></i> ตัวอย่างโจทย์: รถเข้าโค้งผิวราบ</h3>
+          <p><strong>โจทย์:</strong> รถเข้าโค้งรัศมี 40 m ด้วยความเร็วสูงสุด 20 m/s โดยไม่ไถล สัมประสิทธิ์ความเสียดทานคือเท่าใด? (g=10)</p>
+          <div class="formula-box" style="font-size:0.9rem; text-align:left; padding:16px 20px;">
+            แรงสู่ศูนย์กลาง = แรงเสียดทานสถิตสูงสุด<br>
+            mv²/r = μmg → μ = v²/(rg)<br>
+            μ = (20²)/(40×10) = 400/400 = <span style="color:#10b981">1.0</span>
+          </div>
+        </div>
+        <div class="content-box reveal" style="border-left:4px solid var(--accent)">
+          <h4><i class="fa-solid fa-gamepad"></i> จำลอง: วงกลม</h4>
+          <p style="font-size:0.85rem;color:var(--muted);margin-bottom:12px">ปรับความเร็วและรัศมี เพื่อดูความเร่งสู่ศูนย์กลางที่เปลี่ยนไป</p>
+          <canvas id="cvCircle" width="700" height="250" style="width:100%;border-radius:8px;background:var(--bg);border:1px solid var(--border);display:block;margin-bottom:12px"></canvas>
+          <div style="display:flex;gap:16px;flex-wrap:wrap">
+            <div style="flex:1;min-width:140px">
+              <label style="font-size:0.78rem;color:var(--muted)">ความเร็ว v (m/s)</label>
+              <input type="range" id="sim4-v" min="1" max="20" value="8" style="width:100%" oninput="sim4Update()">
+              <div style="font-family:'Space Mono';font-size:0.8rem;text-align:right;color:var(--accent)" id="sim4-v-val">8 m/s</div>
+            </div>
+            <div style="flex:1;min-width:140px">
+              <label style="font-size:0.78rem;color:var(--muted)">รัศมี r (m)</label>
+              <input type="range" id="sim4-r" min="1" max="20" value="5" style="width:100%" oninput="sim4Update()">
+              <div style="font-family:'Space Mono';font-size:0.8rem;text-align:right;color:var(--accent)" id="sim4-r-val">5 m</div>
+            </div>
+          </div>
+          <div style="text-align:center;margin-top:10px;font-family:'Space Mono';font-size:0.9rem;color:var(--accent)" id="sim4-info">a_c = v²/r = 64/5 = 12.8 m/s²</div>
+        </div>
+        <div class="content-box reveal">
+          <h4><i class="fa-solid fa-clipboard-question"></i> แบบทดสอบ: วงกลม</h4>
+          <p>วัตถุวิ่งวงกลม รัศมี 2m ความเร็ว 4m/s ความเร่งสู่ศูนย์กลางคือ?</p>
+          <button class="btn-outline" style="padding:6px 12px;font-size:0.9rem;" onclick="alert('ผิดครับ')">A: 2 m/s²</button>
+          <button class="btn-outline" style="padding:6px 12px;font-size:0.9rem;" onclick="alert('ถูกต้อง! a_c = v²/r')">B: 8 m/s²</button>
+        </div>
+      </div>
+
+      <!-- ==================== บทที่ 5: การสั่นและคลื่น ==================== -->
+      <div id="tab-wave" class="tab-content">
+        <div class="content-box reveal">
+          <h3><i class="fa-solid fa-water"></i> การสั่นและคลื่น</h3>
+          <div style="text-align:center;margin-bottom:24px;">
+            <img src="assets/wave_illus.png" alt="Waves" style="max-width:100%;height:auto;border-radius:8px;box-shadow:var(--shadow);border:1px solid var(--border);">
+          </div>
+          <p>คลื่นกลอาศัยตัวกลางในการส่งผ่านพลังงาน โดยสิ่งสำคัญคือ ความถี่ (f) และความยาวคลื่น (λ)</p>
+          <div class="formula-box">v = fλ</div>
+          <div class="formula-label">อัตราเร็วคลื่น (m/s) = ความถี่ (Hz) × ความยาวคลื่น (m)</div>
+        </div>
+        <div class="content-box reveal">
+          <h3><i class="fa-solid fa-layer-group"></i> การแทรกสอด (Interference)</h3>
+          <p>เมื่อคลื่น 2 ขบวนมาเจอกัน จะเกิดการซ้อนทับกัน (Superposition):</p>
+          <ul style="margin-left:24px; color:var(--muted); line-height:1.8">
+            <li><strong>แทรกสอดแบบเสริม (Constructive):</strong> สันคลื่นเจอสันคลื่น แอมพลิจูดรวมเพิ่มขึ้น</li>
+            <li><strong>แทรกสอดแบบหักล้าง (Destructive):</strong> สันคลื่นเจอท้องคลื่น แอมพลิจูดรวมลดลง</li>
+          </ul>
+        </div>
+        <div class="content-box reveal">
+          <h3><i class="fa-solid fa-pen"></i> ตัวอย่างโจทย์: เสียงสะท้อน (Echo)</h3>
+          <p><strong>โจทย์:</strong> ตะโกนหน้าผา ได้ยินเสียงสะท้อนกลับมาใน 4 วินาที ระยะจากหน้าผา 680 m อัตราเร็วเสียงคือ?</p>
+          <div class="formula-box" style="font-size:0.9rem; text-align:left; padding:16px 20px;">
+            ระยะทางรวม = 2 × 680 = 1360 m<br>
+            v = ระยะทาง/เวลา = 1360 / 4 = <span style="color:#10b981">340 m/s</span>
+          </div>
+        </div>
+        <div class="content-box reveal" style="border-left:4px solid #10b981">
+          <h4><i class="fa-solid fa-gamepad"></i> จำลอง: คลื่น</h4>
+          <p style="font-size:0.85rem;color:var(--muted);margin-bottom:12px">ปรับความถี่และแอมพลิจูดเพื่อดูรูปร่างคลื่นเปลี่ยนไป</p>
+          <canvas id="cvWave" width="700" height="160" style="width:100%;border-radius:8px;background:var(--bg);border:1px solid var(--border);display:block;margin-bottom:12px"></canvas>
+          <div style="display:flex;gap:16px;flex-wrap:wrap">
+            <div style="flex:1;min-width:140px">
+              <label style="font-size:0.78rem;color:var(--muted)">ความถี่ f (Hz)</label>
+              <input type="range" id="sim5-f" min="1" max="10" value="3" style="width:100%" oninput="sim5Update()">
+              <div style="font-family:'Space Mono';font-size:0.8rem;text-align:right;color:#10b981" id="sim5-f-val">3 Hz</div>
+            </div>
+            <div style="flex:1;min-width:140px">
+              <label style="font-size:0.78rem;color:var(--muted)">แอมพลิจูด A</label>
+              <input type="range" id="sim5-a" min="10" max="60" value="40" style="width:100%" oninput="sim5Update()">
+              <div style="font-family:'Space Mono';font-size:0.8rem;text-align:right;color:#10b981" id="sim5-a-val">40</div>
+            </div>
+          </div>
+          <div style="text-align:center;margin-top:10px;font-family:'Space Mono';font-size:0.85rem;color:#10b981" id="sim5-info">λ = — m | v = fλ = — m/s</div>
+        </div>
+        <div class="content-box reveal">
+          <h4><i class="fa-solid fa-clipboard-question"></i> แบบทดสอบ: คลื่น</h4>
+          <p>คลื่น 10 Hz ความยาวคลื่น 2m มีความเร็วเท่าใด?</p>
+          <button class="btn-outline" style="padding:6px 12px;font-size:0.9rem;" onclick="alert('ถูกต้อง! v = fλ = 20 m/s')">A: 20 m/s</button>
+          <button class="btn-outline" style="padding:6px 12px;font-size:0.9rem;" onclick="alert('ผิดครับ')">B: 5 m/s</button>
+        </div>
+      </div>
+
+      <!-- ==================== บทที่ 6: ความร้อน ==================== -->
+      <div id="tab-thermo" class="tab-content">
+        <div class="content-box reveal">
+          <h3><i class="fa-solid fa-temperature-half"></i> ความร้อนและอุณหพลศาสตร์</h3>
+          <div style="text-align:center;margin-bottom:24px;">
+            <img src="assets/thermo_illus.png" alt="Thermodynamics" style="max-width:100%;height:auto;border-radius:8px;box-shadow:var(--shadow);border:1px solid var(--border);">
+          </div>
+          <p>การถ่ายเทความร้อนและการเปลี่ยนสถานะของสาร เกี่ยวข้องกับความจุความร้อน</p>
+          <div class="formula-box">Q = mcΔT</div>
+          <div class="formula-label">พลังงานความร้อน (J) = มวล (kg) × ความจุความร้อนจำเพาะ × การเปลี่ยนแปลงอุณหภูมิ</div>
+          <div class="formula-box" style="margin-top:16px;">PV = nRT</div>
+          <div class="formula-label">กฎแก๊สอุดมคติ (ความดัน × ปริมาตร = โมล × R × อุณหภูมิ)</div>
+          <div class="key-point" style="margin-top:20px;background:#f5f3ff;border-left-color:var(--accent2);"><span><i class="fa-solid fa-meteor"></i></span>
+            <p><strong>รู้หรือไม่?</strong> กฎข้อที่ 2 ของอุณหพลศาสตร์ ไม่เพียงอธิบายทิศทางของความร้อน แต่ยังใช้บ่งชี้ "ทิศทางของเวลา (Arrow of Time)" ผ่านเอนโทรปีที่ต้องเพิ่มขึ้นเสมอในระบบปิด!</p>
+          </div>
+        </div>
+        <div class="content-box reveal">
+          <h3><i class="fa-solid fa-fire"></i> ความร้อนจำเพาะ vs ความร้อนแฝง</h3>
+          <ul style="margin-left:24px; color:var(--muted); line-height:1.8">
+            <li><strong>ความร้อนจำเพาะ (Specific Heat - c):</strong> ปริมาณความร้อนที่ทำให้อุณหภูมิเปลี่ยน แต่สถานะไม่เปลี่ยน (Q = mcΔT)</li>
+            <li><strong>ความร้อนแฝง (Latent Heat - L):</strong> ปริมาณความร้อนที่เปลี่ยนสถานะ เช่น น้ำแข็งเป็นน้ำ โดยอุณหภูมิคงที่ (Q = mL)</li>
+          </ul>
+        </div>
+        <div class="content-box reveal">
+          <h3><i class="fa-solid fa-pen"></i> ตัวอย่างโจทย์: ละลายน้ำแข็ง</h3>
+          <p><strong>โจทย์:</strong> ใช้น้ำแข็ง 2 kg ที่ 0°C หลอมละลายหมดเป็นน้ำที่ 0°C ต้องใช้ความร้อนเท่าใด? (L = 334 kJ/kg)</p>
+          <div class="formula-box" style="font-size:0.9rem; text-align:left; padding:16px 20px;">
+            Q = mL = (2)(334) = <span style="color:#10b981">668 kJ</span>
+          </div>
+        </div>
+        <div class="content-box reveal" style="border-left:4px solid #ef4444">
+          <h4><i class="fa-solid fa-gamepad"></i> จำลอง: ความร้อน Q = mcΔT</h4>
+          <p style="font-size:0.85rem;color:var(--muted);margin-bottom:12px">ปรับมวลและอุณหภูมิที่เปลี่ยนไปเพื่อดูความร้อนที่ต้องใช้</p>
+          <canvas id="cvThermo" width="700" height="180" style="width:100%;border-radius:8px;background:var(--bg);border:1px solid var(--border);display:block;margin-bottom:12px"></canvas>
+          <div style="display:flex;gap:16px;flex-wrap:wrap">
+            <div style="flex:1;min-width:140px">
+              <label style="font-size:0.78rem;color:var(--muted)">มวล m (kg)</label>
+              <input type="range" id="sim6-m" min="1" max="10" value="2" style="width:100%" oninput="sim6Draw()">
+              <div style="font-family:'Space Mono';font-size:0.8rem;text-align:right;color:#ef4444" id="sim6-m-val">2 kg</div>
+            </div>
+            <div style="flex:1;min-width:140px">
+              <label style="font-size:0.78rem;color:var(--muted)">ΔT (°C)</label>
+              <input type="range" id="sim6-dt" min="1" max="100" value="30" style="width:100%" oninput="sim6Draw()">
+              <div style="font-family:'Space Mono';font-size:0.8rem;text-align:right;color:#ef4444" id="sim6-dt-val">30 °C</div>
+            </div>
+          </div>
+          <div style="text-align:center;margin-top:10px;font-family:'Space Mono';font-size:0.9rem;color:#ef4444" id="sim6-info">Q = mcΔT = — J (น้ำ, c = 4186 J/kg·°C)</div>
+        </div>
+        <div class="content-box reveal">
+          <h4><i class="fa-solid fa-clipboard-question"></i> แบบทดสอบ: ความร้อน</h4>
+          <p>กระบวนการที่ปริมาตรคงที่ เมื่อเพิ่มความร้อน ความดันจะเป็นอย่างไร?</p>
+          <button class="btn-outline" style="padding:6px 12px;font-size:0.9rem;" onclick="alert('ถูกต้อง! ความดันจะสูงขึ้นตามกฎของแก๊ส')">A: เพิ่มขึ้น</button>
+          <button class="btn-outline" style="padding:6px 12px;font-size:0.9rem;" onclick="alert('ผิดครับ')">B: ลดลง</button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SIMULATION -->
+  <section id="simulation">
+    <div class="lesson-wrapper">
+      <div class="section-label reveal">Interactive Learning</div>
+      <h2 class="section-title reveal">สถานการณ์จำลอง</h2>
+      <p class="section-desc reveal">ทดลองปรับค่าตัวแปรและสังเกตผล — เรียนรู้จากการปฏิบัติจริงตามแนวคิด Active Learning
+      </p>
+
+      <div class="sim-container reveal">
+        <h3 style="text-align:center;margin-bottom:20px;color:var(--accent)"><i class="fa-solid fa-rocket"></i>
+          การเคลื่อนที่แบบโพรเจกไทล์</h3>
+        <canvas id="simCanvas" class="sim-canvas" width="700" height="300"></canvas>
+
+        <div class="sim-controls">
+          <div class="control-group">
+            <label>ความเร็วต้น (m/s)</label>
+            <input type="range" id="velSlider" min="10" max="50" value="30" oninput="updateSim()">
+            <div class="control-val" id="velVal">30 m/s</div>
+          </div>
+          <div class="control-group">
+            <label>มุมยิง (องศา)</label>
+            <input type="range" id="angleSlider" min="10" max="80" value="45" oninput="updateSim()">
+            <div class="control-val" id="angleVal">45°</div>
+          </div>
+        </div>
+
+        <div style="text-align:center;margin-bottom:16px;font-size:0.85rem;color:var(--muted)" id="simInfo">
+          ระยะพิสัย: — &nbsp;|&nbsp; ความสูงสูงสุด: —
+        </div>
+
+        <div class="sim-btn-group">
+          <button class="sim-btn primary" onclick="launchProjectile()">▶ ยิงกระสุน</button>
+          <button class="sim-btn" onclick="resetSim()">↺ รีเซ็ต</button>
+        </div>
+      </div>
+
+      <!-- SIM 2: Inclined Plane -->
+      <div class="sim-container reveal" style="margin-top:24px">
+        <h3 style="text-align:center;margin-bottom:20px;color:var(--accent2)"><i class="fa-solid fa-mountain"></i> พื้นเอียง (Inclined Plane)</h3>
+        <canvas id="simIncline" class="sim-canvas" width="700" height="280"></canvas>
+        <div class="sim-controls">
+          <div class="control-group">
+            <label>มวล (kg)</label>
+            <input type="range" id="incMass" min="1" max="20" value="5" oninput="updateIncline()">
+            <div class="control-val" id="incMassVal">5 kg</div>
+          </div>
+          <div class="control-group">
+            <label>มุมเอียง (°)</label>
+            <input type="range" id="incAngle" min="5" max="85" value="30" oninput="updateIncline()">
+            <div class="control-val" id="incAngleVal">30°</div>
+          </div>
+          <div class="control-group">
+            <label>μ (สัมประสิทธิ์เสียดทาน)</label>
+            <input type="range" id="incMu" min="0" max="100" value="20" oninput="updateIncline()">
+            <div class="control-val" id="incMuVal">0.20</div>
+          </div>
+        </div>
+        <div style="text-align:center;margin-top:12px;font-size:0.85rem;color:var(--muted)" id="incInfo">ความเร่ง: — m/s²</div>
+      </div>
+
+      <!-- SIM 3: Spring SHM -->
+      <div class="sim-container reveal" style="margin-top:24px">
+        <h3 style="text-align:center;margin-bottom:20px;color:var(--accent3)"><i class="fa-solid fa-wave-square"></i> สปริงและการสั่น (SHM)</h3>
+        <canvas id="simSpring" class="sim-canvas" width="700" height="200"></canvas>
+        <div class="sim-controls">
+          <div class="control-group">
+            <label>ค่าคงที่สปริง k (N/m)</label>
+            <input type="range" id="shmK" min="1" max="50" value="20" oninput="updateSHM()">
+            <div class="control-val" id="shmKVal">20 N/m</div>
+          </div>
+          <div class="control-group">
+            <label>มวล (kg)</label>
+            <input type="range" id="shmM" min="1" max="20" value="5" oninput="updateSHM()">
+            <div class="control-val" id="shmMVal">5 kg</div>
+          </div>
+          <div class="control-group">
+            <label>แอมพลิจูด (cm)</label>
+            <input type="range" id="shmA" min="10" max="100" value="60" oninput="updateSHM()">
+            <div class="control-val" id="shmAVal">60 cm</div>
+          </div>
+        </div>
+        <div style="text-align:center;margin-top:12px;font-size:0.85rem;color:var(--muted)" id="shmInfo">คาบ T: — s | ความถี่ f: — Hz</div>
+      </div>
+
+      <!-- SIM 4: Gas Law -->
+      <div class="sim-container reveal" style="margin-top:24px">
+        <h3 style="text-align:center;margin-bottom:20px;color:#ef4444"><i class="fa-solid fa-flask-vial"></i> กฎแก๊สอุดมคติ (PV = nRT)</h3>
+        <canvas id="simGas" class="sim-canvas" width="700" height="280"></canvas>
+        <div class="sim-controls">
+          <div class="control-group">
+            <label>อุณหภูมิ T (K)</label>
+            <input type="range" id="gasT" min="100" max="600" value="300" oninput="updateGas()">
+            <div class="control-val" id="gasTVal">300 K</div>
+          </div>
+          <div class="control-group">
+            <label>ปริมาตร V (L)</label>
+            <input type="range" id="gasV" min="5" max="50" value="20" oninput="updateGas()">
+            <div class="control-val" id="gasVVal">20 L</div>
+          </div>
+          <div class="control-group">
+            <label>จำนวนโมล n</label>
+            <input type="range" id="gasN" min="1" max="10" value="1" oninput="updateGas()">
+            <div class="control-val" id="gasNVal">1 mol</div>
+          </div>
+        </div>
+        <div style="text-align:center;margin-top:12px;font-size:0.85rem;color:var(--muted)" id="gasInfo">ความดัน P: — atm</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- QUIZ -->
+  <section id="quiz" style="background:var(--surface)">
+    <div class="lesson-wrapper">
+      <div class="section-label reveal">ทดสอบความเข้าใจ</div>
+      <h2 class="section-title reveal">แบบฝึกหัด</h2>
+      <p class="section-desc reveal">ทำแบบฝึกหัดเพื่อตรวจสอบความเข้าใจ ระบบจะให้ Feedback ทันที</p>
+
+      <div class="quiz-container reveal" id="quizBox">
+        <div class="quiz-question" id="qText"></div>
+        <div class="quiz-options" id="qOptions"></div>
+        <div class="quiz-feedback" id="qFeedback"></div>
+        <div class="quiz-nav">
+          <button class="sim-btn primary" id="nextBtn" onclick="nextQuestion()" style="display:none">คำถามถัดไป
+            →</button>
+          <span class="quiz-progress" id="qProgress"></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DESIGN PRINCIPLE -->
+  <section id="design">
+    <div style="max-width:900px;margin:0 auto">
+      <div class="section-label reveal">แนวคิดการออกแบบ</div>
+      <h2 class="section-title reveal">หลักการออกแบบการสอน</h2>
+      <p class="section-desc reveal">เว็บไซต์นี้ออกแบบตามหลักการเรียนการสอนที่มีประสิทธิภาพ</p>
+
+      <div class="section-label reveal" style="margin-bottom:16px">ADDIE Model</div>
+      <div class="addie-flow reveal">
+        <div class="addie-step">
+          <div class="addie-circle">A</div>
+          <div class="addie-name">Analysis</div>
+          <div class="addie-desc">วิเคราะห์ผู้เรียนและเนื้อหาฟิสิกส์</div>
+        </div>
+        <div class="addie-step">
+          <div class="addie-circle">D</div>
+          <div class="addie-name">Design</div>
+          <div class="addie-desc">กำหนดวัตถุประสงค์และโครงสร้างบทเรียน</div>
+        </div>
+        <div class="addie-step">
+          <div class="addie-circle">D</div>
+          <div class="addie-name">Development</div>
+          <div class="addie-desc">พัฒนาสื่อและสถานการณ์จำลอง</div>
+        </div>
+        <div class="addie-step">
+          <div class="addie-circle">I</div>
+          <div class="addie-name">Implementation</div>
+          <div class="addie-desc">นำไปใช้กับผู้เรียน</div>
+        </div>
+        <div class="addie-step">
+          <div class="addie-circle">E</div>
+          <div class="addie-name">Evaluation</div>
+          <div class="addie-desc">ประเมินและปรับปรุง</div>
+        </div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px">
+        <div class="content-box reveal">
+          <h3><i class="fa-solid fa-bullseye"></i> กรวยประสบการณ์</h3>
+          <p>ใช้สื่อหลากหลายระดับ ตั้งแต่ข้อความ สูตร ภาพ ไปจนถึงการจำลองสถานการณ์แบบโต้ตอบ
+            เพื่อให้ผู้เรียนได้รับประสบการณ์ตรง</p>
+        </div>
+        <div class="content-box reveal" style="transition-delay:0.1s">
+          <h3><i class="fa-solid fa-mobile-screen"></i> Active Learning</h3>
+          <p>ผู้เรียนสามารถโต้ตอบกับสถานการณ์จำลอง ปรับค่าตัวแปร และทำแบบฝึกหัดได้ด้วยตนเอง
+            ส่งเสริมการสร้างความรู้ด้วยตนเอง</p>
+        </div>
+        <div class="content-box reveal" style="transition-delay:0.2s">
+          <h3><i class="fa-solid fa-rotate"></i> Feedback ทันที</h3>
+          <p>ระบบให้ Feedback ทันทีหลังตอบคำถาม ช่วยให้ผู้เรียนรู้ว่าเข้าใจถูกหรือผิด และได้รับคำอธิบายเพิ่มเติม</p>
+        </div>
+        <div class="content-box reveal" style="transition-delay:0.3s">
+          <h3><i class="fa-solid fa-ruler-combined"></i> จัดลำดับเนื้อหา</h3>
+          <p>เนื้อหาถูกจัดลำดับจากง่ายไปยาก สอดคล้องกับหลักการออกแบบการสอน เพื่อให้ผู้เรียนสร้างความรู้ได้อย่างเป็นระบบ
+          </p>
+        </div>
+        <div class="content-box reveal" style="transition-delay:0.4s">
+          <h3><i class="fa-solid fa-globe"></i> แหล่งเรียนรู้ดิจิทัล</h3>
+          <p>เว็บไซต์นี้คือแหล่งการเรียนรู้ ICT ที่เรียนได้ทุกที่ทุกเวลา ตามหลัก Lifelong Learning และ Flexible Learning
+          </p>
+        </div>
+        <div class="content-box reveal" style="transition-delay:0.5s">
+          <h3><i class="fa-solid fa-chart-column"></i> ASSURE Model</h3>
+          <p>วิเคราะห์ผู้เรียน → กำหนดวัตถุประสงค์ → เลือกสื่อ → ใช้สื่อ → กำหนดส่วนร่วม → ประเมินผล</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AUTHOR -->
+  <section id="author">
+    <div style="max-width:800px;margin:0 auto;text-align:center">
+      <div class="section-label reveal">เกี่ยวกับเรา</div>
+      <h2 class="section-title reveal">ประวัติผู้จัดทำ</h2>
+      <div class="reveal"
+        style="margin-top:40px;display:flex;flex-direction:column;align-items:center;padding:36px;border:1px solid var(--border);border-radius:24px;background:var(--card);box-shadow: 0 4px 30px rgba(0,0,0,0.1);">
+        <div style="position:relative;margin-bottom:24px">
+          <div
+            style="position:absolute;inset:0;border-radius:50%;background:linear-gradient(135deg, var(--accent), var(--accent2));filter:blur(10px);opacity:0.6;">
+          </div>
+          <img src="assets/author_profile.png" alt="นายชัยเลิศ ตุ้มคำ"
+            style="position:relative;width:160px;height:160px;border-radius:50%;object-fit:cover;border:4px solid var(--surface);z-index:2;">
+        </div>
+        <h3 style="font-size:1.6rem;color:var(--text);margin-bottom:8px">นายชัยเลิศ ตุ้มคำ</h3>
+        <div
+          style="display:inline-block;padding:6px 16px;background:rgba(0,212,255,0.1);border:1px solid var(--accent);border-radius:100px;color:var(--accent);font-family:'Space Mono', monospace;font-size:0.9rem;margin-bottom:16px;">
+          รหัสนักศึกษา: 604147004</div>
+        <p style="font-size:1.05rem;color:var(--muted);line-height:1.6">
+          นักศึกษาสาขาฟิสิกส์ศึกษา<br>มหาวิทยาลัยราชภัฏนครปฐม</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>สร้างตามหลักการ <span>นวัตกรรมและเทคโนโลยีสารสนเทศเพื่อการสื่อสารการศึกษา</span></p>
+    <p style="margin-top:8px;font-size:0.8rem">ADDIE Model · Active Learning · กรวยประสบการณ์ Edgar Dale · ICT Literacy
+    </p>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+
+</html>
