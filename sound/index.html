@@ -1,0 +1,444 @@
+<!doctype html>
+<html lang="th">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>บทเรียนฟิสิกส์เรื่องเสียง</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#home" aria-label="กลับไปหน้าแรก">
+        <span class="brand-mark">12.3</span>
+        <span>
+          <strong>ปรากฏการณ์เกี่ยวกับเสียง</strong>
+          <small>บทเรียนฟิสิกส์ ม.5 พร้อมเสียงและกิจกรรมทดลองเสมือน</small>
+        </span>
+      </a>
+      <nav class="nav-links" aria-label="บทเรียน">
+        <a href="#guided-lesson">เริ่มเรียน</a>
+        <a href="#full-content">อ่านทบทวน</a>
+        <a href="#standing">คลื่นนิ่ง</a>
+        <a href="#resonance">สั่นพ้อง</a>
+        <a href="#beats">บีต</a>
+        <a href="#doppler">ดอปเพลอร์</a>
+        <a href="#shock">คลื่นกระแทก</a>
+      </nav>
+    </header>
+
+    <main id="home">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Physics M.5 | บทที่ 12 เสียง</p>
+          <h1>บทเรียนเรื่องเสียง แบบครูพาเรียนทีละฉาก</h1>
+          <p class="lead">
+            เรียนปรากฏการณ์เกี่ยวกับเสียงแบบค่อยเป็นค่อยไป ครอบคลุมคลื่นนิ่งของเสียง
+            การสั่นพ้องของอากาศในท่อ บีต ปรากฏการณ์ดอปเพลอร์ และคลื่นกระแทก พร้อมคำอธิบาย เสียงบรรยาย เสียงทดลอง และ simulator ประกอบ
+          </p>
+          <div class="hero-actions" aria-label="ทางลัด">
+            <a class="button primary" href="#guided-lesson">เริ่มเรียนทีละฉาก</a>
+            <a class="button ghost" href="#full-content">อ่านทบทวน</a>
+            <a class="button ghost" href="#lesson-map">ดูแผนการสอน</a>
+          </div>
+        </div>
+        <div class="hero-visual" aria-label="ภาพรวมปรากฏการณ์เสียง">
+          <canvas id="heroCanvas"></canvas>
+        </div>
+      </section>
+
+      <section id="guided-lesson" class="section guided-section">
+        <div class="section-heading">
+          <p class="eyebrow">Guided Lesson Player</p>
+          <h2>เรียนทีละฉาก</h2>
+          <p>
+            ส่วนนี้ออกแบบให้เหมือนมีครูคอยพาเรียน นักเรียนอ่านคำอธิบาย ฟังเสียงบรรยาย ทดลองเสียง และตอบคำถามสั้น ๆ ก่อนเลื่อนไปฉากถัดไป
+          </p>
+        </div>
+
+        <div class="lesson-player" aria-label="บทเรียนทีละฉาก">
+          <aside class="lesson-sidebar">
+            <div class="lesson-sidebar-head">
+              <span id="lessonProgressText">ช่วงที่ 1/79</span>
+              <div class="progress-track" aria-hidden="true"><span id="lessonProgressFill"></span></div>
+            </div>
+            <div id="lessonSceneList" class="scene-list" aria-label="สารบัญฉากเรียน"></div>
+          </aside>
+
+          <article class="lesson-stage">
+            <div class="stage-topline">
+              <span id="lessonChapterPill">12.3.1</span>
+              <span id="lessonPptxRef">หัวข้อที่ 1</span>
+            </div>
+            <h3 id="lessonSceneTitle">กำลังเตรียมบทเรียน...</h3>
+            <p id="lessonTeacherScript" class="teacher-script"></p>
+
+            <div id="lessonKeyIdea" class="callout key-idea"></div>
+            <div id="lessonFormula" class="lesson-formula"></div>
+            <div id="lessonExample" class="callout example-box"></div>
+            <div id="lessonVisual" class="lesson-visual-box"></div>
+            <div id="lessonExperiment" class="callout experiment-box"></div>
+            <div id="lessonSoundDemo" class="sound-demo-box"></div>
+            <div id="lessonQuiz" class="lesson-quiz"></div>
+
+            <div class="lesson-actions" aria-label="ตัวควบคุมบทเรียน">
+              <button id="lessonStart" class="button primary" type="button">เริ่มเรียน</button>
+              <button id="lessonPrev" class="button ghost" type="button">ก่อนหน้า</button>
+              <button id="lessonNext" class="button ghost" type="button">ถัดไป</button>
+              <button id="lessonNarrate" class="button ghost" type="button">ฟังคำบรรยาย</button>
+              <button id="lessonStopNarration" class="button ghost" type="button">หยุดเสียง</button>
+              <label class="auto-narrate">
+                <input id="lessonAutoNarrate" type="checkbox" />
+                อ่านต่ออัตโนมัติ
+              </label>
+            </div>
+            <p id="lessonStatus" class="lesson-status" role="status"></p>
+          </article>
+        </div>
+      </section>
+
+      <section id="lesson-map" class="section band">
+        <div class="section-heading">
+          <p class="eyebrow">Teaching Flow</p>
+          <h2>แผนการเรียน</h2>
+          <p>
+            ใช้ได้ทั้งแบบสอนหน้าชั้น 2-4 คาบ หรือให้นักเรียนเรียนรู้ด้วยตนเองก่อนทำกิจกรรมจริง
+          </p>
+        </div>
+        <div class="module-grid">
+          <article class="module-card">
+            <span class="module-number">01</span>
+            <h3>คลื่นนิ่งของเสียง</h3>
+            <p>เริ่มจากทบทวนคลื่นนิ่งจากคลื่น 2 ขบวน การเกิดตำแหน่งเสียงดัง-ค่อย และความสัมพันธ์ λ/4, λ/2</p>
+          </article>
+          <article class="module-card">
+            <span class="module-number">02</span>
+            <h3>การสั่นพ้องในท่อ</h3>
+            <p>ต่อด้วยความถี่ธรรมชาติของลำอากาศ ท่อปลายปิดหนึ่งด้าน และสมการ f<sub>n</sub> = nv/4L</p>
+          </article>
+          <article class="module-card">
+            <span class="module-number">03</span>
+            <h3>บีต</h3>
+            <p>เรียนเสียงดัง-ค่อยตามเวลา เมื่อเสียง 2 แหล่งมีความถี่ต่างกันเล็กน้อย และ f<sub>b</sub> = |f<sub>1</sub>-f<sub>2</sub>|</p>
+          </article>
+          <article class="module-card">
+            <span class="module-number">04</span>
+            <h3>ดอปเพลอร์และคลื่นกระแทก</h3>
+            <p>ปิดท้ายด้วยความถี่ที่ผู้ฟังได้ยินเมื่อมีการเคลื่อนที่สัมพัทธ์ และคลื่นกระแทกเมื่อแหล่งกำเนิดเร็วกว่าเสียง</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="full-content" class="section full-content-section">
+        <div class="section-heading">
+          <p class="eyebrow">Lesson Notes</p>
+          <h2>เนื้อหาอ่านทบทวน</h2>
+          <p>
+            อ่านต่อเนื่องแบบเอกสาร ครอบคลุมจุดประสงค์ กิจกรรมทดลอง อภิปรายผล สูตร ตัวอย่างคำนวณ และคำถามตรวจสอบความเข้าใจ
+            พร้อมสื่อประกอบในจุดสำคัญ
+          </p>
+        </div>
+        <div id="lessonContent" class="lesson-content" aria-live="polite"></div>
+      </section>
+
+      <section class="section">
+        <div class="section-heading">
+          <p class="eyebrow">Learning Objectives</p>
+          <h2>จุดประสงค์การเรียนรู้</h2>
+        </div>
+        <div class="two-column">
+          <div class="text-panel">
+            <h3>ด้านความรู้</h3>
+            <ul>
+              <li>อธิบายการเกิดคลื่นนิ่งของเสียงจากการซ้อนทับของเสียงตกกระทบและเสียงสะท้อน</li>
+              <li>อธิบายและคำนวณการสั่นพ้องของอากาศในท่อปลายปิดหนึ่งด้าน</li>
+              <li>อธิบายบีตและคำนวณความถี่บีตจากผลต่างของความถี่เสียงสองแหล่ง</li>
+              <li>อธิบายปรากฏการณ์ดอปเพลอร์ของเสียงและคลื่นกระแทกจากการเคลื่อนที่ของแหล่งกำเนิด</li>
+            </ul>
+          </div>
+          <div class="text-panel">
+            <h3>ด้านทักษะ</h3>
+            <ul>
+              <li>อ่านผลจากกราฟคลื่น ตำแหน่งบัพ ปฏิบัพ และความยาวคลื่น</li>
+              <li>ใช้ข้อมูลอุณหภูมิเพื่อหาอัตราเร็วเสียง v = 331 + 0.6T<sub>C</sub></li>
+              <li>ออกแบบการทดลองด้วยแหล่งกำเนิดเสียง แอปวัดระดับเสียง และหลอดเรโซแนนซ์</li>
+              <li>เชื่อมโยงปรากฏการณ์เสียงกับสถานการณ์จริง เช่น เครื่องดนตรี รถพยาบาล และซอนิกบูม</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="simulators" class="section band">
+        <div class="section-heading">
+          <p class="eyebrow">Interactive Lab</p>
+          <h2>ชุดทดลองเสมือน</h2>
+          <p>ทุก simulator คำนวณใหม่ทันทีเมื่อเปลี่ยนค่า และวาดภาพด้วย canvas เพื่อใช้ประกอบการอธิบายหน้าชั้น</p>
+        </div>
+      </section>
+
+      <section id="standing" class="section lesson-section">
+        <div class="lesson-copy">
+          <p class="eyebrow">12.3.1</p>
+          <h2>คลื่นนิ่งของเสียง</h2>
+          <p>
+            คลื่นนิ่งเกิดจากคลื่นเสียง 2 ขบวนที่มีแอมพลิจูด ความถี่ และความยาวคลื่นเท่ากัน เคลื่อนที่สวนทางกันแล้วซ้อนทับกัน
+            ในกิจกรรมนี้ เสียงจากลำโพงสะท้อนจากพื้นหรือผนังแข็ง แล้วรวมกับเสียงเดิมจนเกิดตำแหน่งเสียงดังและเสียงค่อยสลับกัน
+          </p>
+          <div class="formula-strip">
+            <span>v = fλ</span>
+            <span>ดัง-ค่อยถัดกัน = λ/4</span>
+            <span>ดัง-ดังถัดกัน = λ/2</span>
+          </div>
+          <details>
+            <summary>แนวอภิปรายสำหรับครู</summary>
+            <p>
+              ตำแหน่งเสียงดังที่สุดคือปฏิบัพความดันและบัพการกระจัด ส่วนตำแหน่งเสียงค่อยที่สุดคือบัพความดันและปฏิบัพการกระจัด
+              ที่พื้นหรือกำแพงแข็งมักเป็นปฏิบัพความดัน เพราะอากาศใกล้ผิวแข็งถูกอัด-ขยายเด่น แต่การกระจัดของโมเลกุลเป็นศูนย์
+            </p>
+          </details>
+        </div>
+        <div class="simulator">
+          <div class="sim-header">
+            <h3>Simulator 1: คลื่นนิ่งระหว่างลำโพงกับพื้นแข็ง</h3>
+            <p id="standingReadout">กำลังคำนวณ...</p>
+          </div>
+          <canvas id="standingCanvas" class="sim-canvas"></canvas>
+          <div class="controls three">
+            <label>
+              ความถี่เสียง
+              <input id="swFreq" type="range" min="400" max="4000" value="3000" step="50" />
+              <output id="swFreqOut"></output>
+            </label>
+            <label>
+              อัตราเร็วเสียง
+              <input id="swSpeed" type="range" min="320" max="360" value="348" step="1" />
+              <output id="swSpeedOut"></output>
+            </label>
+            <label>
+              ระยะลำโพง-พื้น
+              <input id="swLength" type="range" min="20" max="120" value="60" step="1" />
+              <output id="swLengthOut"></output>
+            </label>
+          </div>
+        </div>
+      </section>
+
+      <section id="resonance" class="section lesson-section reverse">
+        <div class="lesson-copy">
+          <p class="eyebrow">12.3.2</p>
+          <h2>การสั่นพ้องของอากาศในท่อปลายปิดหนึ่งด้าน</h2>
+          <p>
+            เมื่อลำอากาศในท่อถูกกระตุ้นด้วยเสียงที่มีความถี่เท่ากับความถี่ธรรมชาติ ลำอากาศจะสั่นพ้องและได้ยินเสียงดังมาก
+            สำหรับท่อปลายปิดหนึ่งด้าน ปากท่อเป็นปฏิบัพการกระจัด ส่วนปลายปิดเป็นบัพการกระจัด
+          </p>
+          <div class="formula-strip">
+            <span>v = 331 + 0.6T<sub>C</sub></span>
+            <span>L = nλ/4</span>
+            <span>f<sub>n</sub> = nv/4L, n = 1, 3, 5, ...</span>
+          </div>
+          <figure class="reference-figure">
+            <img src="assets/pptx/closed-tube-first-resonance.png" alt="การสั่นพ้องครั้งแรกของท่อปลายปิด" />
+            <figcaption>การสั่นพ้องครั้งแรก L = λ/4</figcaption>
+          </figure>
+          <details>
+            <summary>โจทย์ตัวอย่าง</summary>
+            <p>
+              ถ้าตำแหน่งลูกสูบขณะเกิดเสียงดังที่สุดสองครั้งถัดกันห่างกัน 0.400 m ระยะนี้เท่ากับ λ/2
+              ดังนั้น λ = 0.800 m และถ้า v = 346 m/s จะได้ f = v/λ = 433 Hz
+            </p>
+          </details>
+        </div>
+        <div class="simulator">
+          <div class="sim-header">
+            <h3>Simulator 2: หลอดเรโซแนนซ์</h3>
+            <p id="tubeReadout">กำลังคำนวณ...</p>
+          </div>
+          <canvas id="tubeCanvas" class="sim-canvas"></canvas>
+          <div class="controls three">
+            <label>
+              อุณหภูมิ
+              <input id="tubeTemp" type="range" min="0" max="40" value="28" step="1" />
+              <output id="tubeTempOut"></output>
+            </label>
+            <label>
+              ความถี่
+              <input id="tubeFreq" type="range" min="200" max="3000" value="1000" step="10" />
+              <output id="tubeFreqOut"></output>
+            </label>
+            <label>
+              ความยาวลำอากาศ
+              <input id="tubeLength" type="range" min="5" max="120" value="8.7" step="0.1" />
+              <output id="tubeLengthOut"></output>
+            </label>
+          </div>
+        </div>
+      </section>
+
+      <section id="beats" class="section lesson-section">
+        <div class="lesson-copy">
+          <p class="eyebrow">12.3.3</p>
+          <h2>บีต</h2>
+          <p>
+            เมื่อเสียงจากแหล่งกำเนิด 2 แหล่งมีความถี่ต่างกันเล็กน้อยมาพบกัน การซ้อนทับทำให้ได้ยินเสียงดัง-ค่อยเป็นจังหวะตามเวลา
+            จำนวนครั้งของเสียงดัง-ค่อยต่อวินาทีคือความถี่บีต
+          </p>
+          <div class="formula-strip">
+            <span>f<sub>b</sub> = |f<sub>1</sub> - f<sub>2</sub>|</span>
+            <span>หูแยกบีตได้ดีเมื่อ f<sub>b</sub> ≤ 7 Hz</span>
+          </div>
+          <figure class="reference-figure wide">
+            <img src="assets/pptx/beat-two-waves.png" alt="คลื่นเสียงสองความถี่ใกล้กัน" />
+            <figcaption>คลื่นสองชุดที่ความถี่ต่างกันเล็กน้อย</figcaption>
+          </figure>
+          <details>
+            <summary>แยกบีตกับแทรกสอดอย่างไร</summary>
+            <p>
+              บีตทำให้เสียงดัง-ค่อยเปลี่ยนตามเวลา ณ ตำแหน่งฟังเดียวกัน ส่วนการแทรกสอดของเสียงจากแหล่งกำเนิดอาพันธ์ทำให้เสียงดัง-ค่อยเปลี่ยนตามตำแหน่งผู้ฟัง
+            </p>
+          </details>
+        </div>
+        <div class="simulator">
+          <div class="sim-header">
+            <h3>Simulator 3: Beat Lab</h3>
+            <p id="beatReadout">กำลังคำนวณ...</p>
+          </div>
+          <canvas id="beatCanvas" class="sim-canvas"></canvas>
+          <div class="controls three">
+            <label>
+              f<sub>1</sub>
+              <input id="beatF1" type="range" min="250" max="800" value="392" step="1" />
+              <output id="beatF1Out"></output>
+            </label>
+            <label>
+              f<sub>2</sub>
+              <input id="beatF2" type="range" min="250" max="800" value="395" step="1" />
+              <output id="beatF2Out"></output>
+            </label>
+            <button id="beatAudio" class="button control-button" type="button">เปิดเสียงตัวอย่าง</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="doppler" class="section lesson-section reverse">
+        <div class="lesson-copy">
+          <p class="eyebrow">12.3.4</p>
+          <h2>ปรากฏการณ์ดอปเพลอร์ของเสียง</h2>
+          <p>
+            เมื่อแหล่งกำเนิดเสียงและผู้ฟังมีการเคลื่อนที่สัมพัทธ์กัน ผู้ฟังจะได้ยินความถี่ต่างจากความถี่ที่แหล่งกำเนิดผลิต
+            ถ้าแหล่งกำเนิดเคลื่อนที่เข้าหาผู้ฟัง หน้าคลื่นถูกอัดให้สั้นลงและได้ยินเสียงสูงขึ้น ถ้าเคลื่อนที่ออก หน้าคลื่นยาวขึ้นและได้ยินเสียงต่ำลง
+          </p>
+          <div class="formula-strip">
+            <span>เข้าหากัน: ความถี่สูงขึ้น</span>
+            <span>ห่างกัน: ความถี่ต่ำลง</span>
+            <span>ลมคงตัวอย่างเดียวไม่ทำให้เกิดดอปเพลอร์</span>
+          </div>
+          <figure class="reference-figure">
+            <img src="assets/pptx/doppler-moving-source.png" alt="แหล่งกำเนิดเคลื่อนที่และหน้าคลื่นอัดด้านหน้า" />
+            <figcaption>รถเคลื่อนที่ทำให้ผู้ฟังหน้าและหลังได้ยินต่างกัน</figcaption>
+          </figure>
+          <details>
+            <summary>สถานการณ์รถพยาบาล</summary>
+            <p>
+              ก่อนรถผ่านเด็ก แหล่งกำเนิดเคลื่อนที่เข้าหา เด็กได้ยินความถี่สูงขึ้น ขณะผ่านประมาณว่าอยู่คนละแนวกับการเคลื่อนที่ของเสียงจึงใกล้ความถี่เดิม
+              หลังผ่านไป แหล่งกำเนิดเคลื่อนที่ออก เด็กได้ยินความถี่ต่ำลง
+            </p>
+          </details>
+        </div>
+        <div class="simulator">
+          <div class="sim-header">
+            <h3>Simulator 4: Doppler Field</h3>
+            <p id="dopplerReadout">กำลังคำนวณ...</p>
+          </div>
+          <canvas id="dopplerCanvas" class="sim-canvas"></canvas>
+          <div class="controls three">
+            <label>
+              ความถี่ไซเรน
+              <input id="dopplerFreq" type="range" min="300" max="1200" value="600" step="10" />
+              <output id="dopplerFreqOut"></output>
+            </label>
+            <label>
+              ความเร็วแหล่งกำเนิด
+              <input id="sourceSpeed" type="range" min="-120" max="120" value="40" step="1" />
+              <output id="sourceSpeedOut"></output>
+            </label>
+            <label>
+              ความเร็วผู้ฟัง
+              <input id="listenerSpeed" type="range" min="-60" max="60" value="0" step="1" />
+              <output id="listenerSpeedOut"></output>
+            </label>
+          </div>
+        </div>
+      </section>
+
+      <section id="shock" class="section lesson-section">
+        <div class="lesson-copy">
+          <p class="eyebrow">Supersonic</p>
+          <h2>คลื่นกระแทกและซอนิกบูม</h2>
+          <p>
+            ถ้าแหล่งกำเนิดเสียงเคลื่อนที่เร็วกว่าอัตราเร็วเสียงในตัวกลาง หน้าคลื่นหลายหน้าจะซ้อนสะสมเป็นแนวกรวยคลื่นกระแทก
+            พลังงานจำนวนมากจึงรวมอยู่บนหน้าคลื่น และผู้ฟังตามแนวนี้จะได้ยินเสียงดังมาก เรียกว่า ซอนิกบูม
+          </p>
+          <div class="formula-strip">
+            <span>M = v<sub>s</sub>/v</span>
+            <span>sin θ = 1/M</span>
+            <span>ยิ่ง M มาก มุมมัคยิ่งเล็ก</span>
+          </div>
+          <figure class="reference-figure">
+            <img src="assets/pptx/shock-wave-mach-cone.png" alt="มุมมัคและหน้าคลื่นกระแทก" />
+            <figcaption>หน้าคลื่นกระแทกและมุมมัค</figcaption>
+          </figure>
+        </div>
+        <div class="simulator">
+          <div class="sim-header">
+            <h3>Simulator 5: Mach Cone</h3>
+            <p id="shockReadout">กำลังคำนวณ...</p>
+          </div>
+          <canvas id="shockCanvas" class="sim-canvas"></canvas>
+          <div class="controls two">
+            <label>
+              Mach number
+              <input id="machNumber" type="range" min="1.01" max="3" value="1.4" step="0.01" />
+              <output id="machNumberOut"></output>
+            </label>
+            <label>
+              อัตราเร็วเสียง
+              <input id="shockSoundSpeed" type="range" min="320" max="360" value="343" step="1" />
+              <output id="shockSoundSpeedOut"></output>
+            </label>
+          </div>
+        </div>
+      </section>
+
+      <section class="section band">
+        <div class="section-heading">
+          <p class="eyebrow">Assessment</p>
+          <h2>แบบตรวจสอบความเข้าใจ</h2>
+        </div>
+        <div class="check-grid">
+          <details>
+            <summary>1. คลื่นนิ่ง: ดัง-ค่อยห่างกัน 10.00 cm หา f เมื่อ v = 350 m/s</summary>
+            <p>ระยะดัง-ค่อยถัดกัน = λ/4 = 0.1000 m ดังนั้น λ = 0.4000 m และ f = v/λ = 350/0.4000 = 875 Hz</p>
+          </details>
+          <details>
+            <summary>2. สั่นพ้อง: ตำแหน่งเรโซแนนซ์ถัดกันห่าง 0.400 m หา f เมื่อ v = 346 m/s</summary>
+            <p>ตำแหน่งเรโซแนนซ์ถัดกันห่าง λ/2 ดังนั้น λ = 0.800 m และ f = 346/0.800 = 433 Hz</p>
+          </details>
+          <details>
+            <summary>3. บีต: 392 Hz กับเสียงอีกตัวเกิดบีต 3 Hz เสียงอีกตัวเป็นเท่าใด</summary>
+            <p>f<sub>b</sub> = |392 - f<sub>2</sub>| = 3 ดังนั้น f<sub>2</sub> = 389 Hz หรือ 395 Hz</p>
+          </details>
+          <details>
+            <summary>4. ดอปเพลอร์: รถพยาบาลวิ่งเข้าหา ผ่าน แล้ววิ่งออก ผู้ฟังได้ยินอย่างไร</summary>
+            <p>ก่อนผ่านได้ยินสูงขึ้น ขณะผ่านใกล้ความถี่เดิม หลังผ่านได้ยินต่ำลง</p>
+          </details>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>บทเรียนฟิสิกส์เรื่องเสียง พร้อมเสียงบรรยาย เสียงทดลอง และกิจกรรมจำลองสำหรับห้องเรียน</p>
+    </footer>
+
+    <script src="lesson-content.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
