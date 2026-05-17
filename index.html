@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="th">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>เวอร์เนียร์คาลิปเปอร์จำลอง</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="source-clone" aria-label="เวอร์เนียร์คาลิปเปอร์จำลอง">
+      <canvas id="caliperCanvas" width="1500" height="900">
+        เบราว์เซอร์ของคุณไม่รองรับ HTML5 canvas
+      </canvas>
+
+      <button class="info-button" id="infoButton" type="button" aria-label="ข้อมูลการใช้งาน">i</button>
+
+      <aside class="gui-panel" aria-label="Vernier Settings">
+        <button class="settings-toggle" id="settingsToggleBtn" type="button" aria-expanded="true">
+          ซ่อนแผง
+        </button>
+
+        <header class="gui-header">
+          <h1>Vernier Settings</h1>
+        </header>
+
+        <section class="instrument-tabs" aria-label="เลือกเครื่องมือ">
+          <button class="instrument-tab is-active" id="vernierTabBtn" type="button" data-instrument="vernier">
+            เวอร์เนียร์
+          </button>
+          <button class="instrument-tab" id="micrometerTabBtn" type="button" data-instrument="micrometer">
+            ไมโครมิเตอร์
+          </button>
+        </section>
+
+        <section class="gui-folder">
+          <h2>Device settings</h2>
+
+          <div class="setting-line">
+            <span>Least Count</span>
+            <strong id="leastCountValue">0.02 mm</strong>
+          </div>
+
+          <label class="setting-field" for="mainScaleRange">
+            <span>MSD Count</span>
+            <output id="mainScaleCountValue" for="mainScaleRange">150 mm / 15 cm</output>
+          </label>
+          <input id="mainScaleRange" type="range" min="50" max="150" step="10" value="150" />
+
+          <label class="setting-field" for="vernierDivisionRange">
+            <span id="secondaryScaleLabel">VSD Count</span>
+            <output id="vernierDivisionValue" for="vernierDivisionRange">50 ช่อง / 0-10</output>
+          </label>
+          <input id="vernierDivisionRange" type="range" min="10" max="50" step="10" value="50" />
+
+          <div class="manual-slide" aria-hidden="true">
+            <output id="openingOutput" for="measurementRange">12.34 mm</output>
+            <button class="step-button" id="decreaseBtn" type="button" aria-label="ลดค่า">-</button>
+            <input id="measurementRange" type="range" min="0" max="150" step="0.02" value="12.34" />
+            <button class="step-button" id="increaseBtn" type="button" aria-label="เพิ่มค่า">+</button>
+          </div>
+
+          <label class="setting-field" for="zeroErrorRange">
+            <span>Zero Error</span>
+            <output id="zeroErrorValue" for="zeroErrorRange">ซ่อนอยู่</output>
+          </label>
+          <input id="zeroErrorRange" type="range" min="-49" max="49" step="1" value="0" />
+
+          <label class="check-row" for="drawSubDivisionsInput">
+            <input id="drawSubDivisionsInput" type="checkbox" />
+            <span>Virtual Divisions</span>
+          </label>
+
+          <button class="pane-button" id="valuesToggleBtn" type="button" aria-pressed="false">Display values</button>
+        </section>
+
+        <section class="gui-folder">
+          <h2>Create Problem</h2>
+          <div class="button-row">
+            <button class="pane-button primary" id="newProblemBtn" type="button">สร้างโจทย์</button>
+            <button class="pane-button" id="revealBtn" type="button">เฉลย</button>
+          </div>
+          <div class="problem-value" id="problemValue">ยังไม่มีโจทย์</div>
+          <div class="status-strip" id="problemStatus">กดสร้างโจทย์ แล้วลากวัตถุไปชนปากวัด</div>
+        </section>
+
+        <section class="gui-folder readout-block">
+          <h2>Reading</h2>
+          <div class="primary-reading">
+            <span id="readingValue">----</span>
+            <small>mm</small>
+          </div>
+          <dl class="readout-grid">
+            <div>
+              <dt>สเกลหลัก</dt>
+              <dd id="mainScaleValue">ซ่อนอยู่</dd>
+            </div>
+            <div>
+              <dt>ขีดเวอร์เนียร์</dt>
+              <dd id="vernierLineValue">ซ่อนอยู่</dd>
+            </div>
+            <div>
+              <dt>เวอร์เนียร์เพิ่ม</dt>
+              <dd id="vernierAddValue">ซ่อนอยู่</dd>
+            </div>
+            <div>
+              <dt>หน่วย cm</dt>
+              <dd id="readingCmValue">ซ่อนอยู่</dd>
+            </div>
+          </dl>
+          <div class="correction-line">
+            <span>ค่าหลังแก้ศูนย์</span>
+            <strong id="correctedValue">ซ่อนอยู่</strong>
+          </div>
+          <p class="formula-text" id="formulaText">ซ่อนสูตรไว้</p>
+        </section>
+      </aside>
+
+      <section class="info-overlay" id="infoOverlay" hidden>
+        <div class="info-dialog" role="dialog" aria-modal="true" aria-labelledby="infoTitle">
+          <button class="close-button" id="closeInfoButton" type="button" aria-label="ปิด">×</button>
+          <h2 id="infoTitle">Vernier Simulation</h2>
+          <p>
+            คลิกลากบริเวณปากเลื่อนบนภาพเพื่อเลื่อนเวอร์เนียร์ หรือใช้ล้อเมาส์/ปุ่มลูกศร
+            ลากวัตถุสีเขียวได้อิสระ และเมื่อชนปากวัดนอก ปากวัดใน หรือใบวัดลึก ระบบจะจับตำแหน่งให้เอง
+          </p>
+          <p>
+            หน้านี้โคลนรูปแบบหลักจากเว็บต้นทางก่อน: canvas เต็มจอ แผงควบคุมลอยด้านขวา
+            และใช้ภาพชิ้นส่วนเวอร์เนียร์จากเว็บที่ให้มา
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
